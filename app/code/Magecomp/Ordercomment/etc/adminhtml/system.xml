@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magecomp" translate="label" sortOrder="100">
+            <label><![CDATA[<img src="https://www.magecomp.com/media/images/magecomp--extension.png" alt="MAGECOMP" height="25" style="vertical-align:middle;"/>]]></label>
+        </tab>
+        <section id="ordcomments" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>magecomp</tab>
+            <label>Order Comments</label>
+            <resource>Magecomp_Ordercomment::ordecommentconfig</resource>
+            <group id="general" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Comments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+            </group>
+            <group id="ordercomments" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Template Settings</label>
+                <field id="checkouttitle" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <depends><field id="ordcomments/general/enable">1</field></depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="max_length" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max Character Length</label>
+                    <comment>Empty for No limit</comment>
+                    <depends><field id="ordcomments/general/enable">1</field></depends>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="defualt_show" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Initial Collapse</label>
+                    <source_model>Magecomp\Ordercomment\Model\Config\Source\Defaultshow</source_model>
+                    <depends><field id="ordcomments/general/enable">1</field></depends>
+                </field>
+                <field id="display_frontend" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Comments at Customer Account</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="ordcomments/general/enable">1</field></depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

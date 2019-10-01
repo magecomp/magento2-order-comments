@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ordcomments>
+            <ordercomments>
+                <checkouttitle>Do you Want to add Comments?</checkouttitle>
+                <display_frontend>1</display_frontend>
+                <defualt_show>0</defualt_show>
+            </ordercomments>
+        </ordcomments>
+    </default>
+</config>
